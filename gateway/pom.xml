@@ -6,6 +6,29 @@
         <groupId>com.newyuxing</groupId>
         <artifactId>parent</artifactId>
         <version>1.0</version>
+        <!--<relativePath>父构件pom.xml路径 默认是../pom.xml</relativePath>-->
+        <!--
+        mvn dependency:tree  查看依赖结构树
+        groupId、version、dependency中的依赖在子pom.xml中都没有写，这些都是从父pom.xml中继承过来的，还有很多元素也可以被继承过来，下面我们列个清单：
+        groupId：项目组ID，项目坐标的核心元素
+        version：项目版本，项目坐标的核心元素
+        description：项目的描述信息
+        organization：项目的组织信息
+        inceptionYear：项目的创始年份
+        url：项目的url地址
+        developers：项目的开发者信息
+        contributors：项目的贡献者信息
+        distributionManagement：项目的部署配置信息
+        issueManagement：项目的缺陷跟踪系统信息
+        ciManagement：项目的持续集成系统信息
+        scm：项目的版本控制系统信息
+        mailingLists：项目的邮件列表信息
+        properties：自定义的maven属性配置信息
+        dependencyManagement：项目的依赖管理配置
+        repositories：项目的仓库配置
+        build：包括项目的源码目录配置、输出目录配置、插件管理配置等信息
+        reporting：包括项目的报告输出目录配置、报告插件配置等信息
+        -->
     </parent>
     <groupId>com.newyuxing</groupId>
     <artifactId>gateway</artifactId>
@@ -41,6 +64,10 @@
     </dependencies>
 
     <dependencyManagement>
+        <!--
+        犹豫是父子项目 已经继承了parent 无法继承spring-cloud-dependencie
+        所以添加单继承模块，添加完后可以通过<dependency>声明需要使用的依赖
+        -->
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
